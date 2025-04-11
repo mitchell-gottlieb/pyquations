@@ -1,4 +1,4 @@
-name: Test Build Docs
+name: Test Doc Build
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-docs:
-    name: Test Build Documentation
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -24,5 +24,5 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r docs/requirements.txt
 
-      - name: Build Documentation
+      - name: Test Build Documentation
         run: sphinx-multiversion docs/ docs/_build/html

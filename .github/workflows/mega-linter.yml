@@ -20,5 +20,7 @@ jobs:
 
       - name: Run MegaLinter
         uses: oxsecurity/megalinter@v8
+        with:
+          linter_version: slim
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
