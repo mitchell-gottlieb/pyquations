@@ -4,6 +4,10 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - "**/*.py"
+      - "pyproject.toml"
+      - ".github/workflows/test-suite.yml"
 
 jobs:
   test:
