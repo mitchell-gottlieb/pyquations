@@ -1,4 +1,4 @@
-name: Release Package Updates
+name: Release Package
 
 on:
   release:
@@ -8,6 +8,11 @@ jobs:
   publish-package:
     name: Publish to PyPI
     runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/pyquations
+    permissions:
+      id-token: write
 
     steps:
       - name: Checkout Code
