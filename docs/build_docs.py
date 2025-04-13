@@ -34,6 +34,7 @@ def build_docs() -> None:
 
 def rename_rst_header() -> None:
     # Rename the header of the _api/modules.rst file
+    with open("_api/modules.rst", "r") as file:
         lines: list[str] = file.readlines()
 
     # Modify the first line
