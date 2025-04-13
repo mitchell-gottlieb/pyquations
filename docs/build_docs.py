@@ -12,6 +12,7 @@ def build_docs() -> None:
     subprocess.run(clean_cmd, check=True)
 
     # Build RST Files for pyquations
+    # TODO: Make fail on any error/warning
     sphinx_apidoc_cmd: list[str] = [
         "sphinx-apidoc",
         "-o",
