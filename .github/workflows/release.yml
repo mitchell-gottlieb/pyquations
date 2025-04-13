@@ -4,6 +4,10 @@ on:
   release:
     types: [published]
 
+permissions:
+  id-token: write
+  contents: write
+
 jobs:
   publish-package:
     name: Publish to PyPI
@@ -11,8 +15,6 @@ jobs:
     environment:
       name: pypi
       url: https://pypi.org/p/pyquations
-    permissions:
-      id-token: write
 
     steps:
       - name: Checkout Code
