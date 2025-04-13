@@ -13,6 +13,6 @@ Coming soon!
    :hidden:
 
    user_guide/index.rst
-   _api/modules.rst
+   api/modules.rst
    development_guide/index.rst
    release_notes/index.rst

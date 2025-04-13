@@ -10,6 +10,6 @@
 
 ## Why use pyquations?
 
-- **Save Time**: No need to reprogram common equations from scratch.
+- **Save Time**: No need to reprogram equations from scratch.
 - **Reliability**: Built-in equations are tested and ready to use.
 - **Ease of Use**: Simple, intuitive API for quick integration into your projects.

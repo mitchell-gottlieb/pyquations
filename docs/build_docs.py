@@ -7,7 +7,7 @@ def build_docs() -> None:
     clean_cmd: list[str] = [
         "rm",
         "-rf",
-        "_api/*",
+        "api/*",
     ]
     subprocess.run(clean_cmd, check=True)
 
@@ -16,7 +16,7 @@ def build_docs() -> None:
     sphinx_apidoc_cmd: list[str] = [
         "sphinx-apidoc",
         "-o",
-        "_api",
+        "api",
         "../pyquations",
     ]
     subprocess.run(sphinx_apidoc_cmd, check=True)
@@ -33,8 +33,8 @@ def build_docs() -> None:
 
 
 def rename_rst_header() -> None:
-    # Rename the header of the _api/modules.rst file
-    with open("_api/modules.rst", "r") as file:
+    # Rename the header of the api/modules.rst file
+    with open("api/modules.rst", "r") as file:
         lines: list[str] = file.readlines()
 
     # Modify the first line
@@ -42,7 +42,7 @@ def rename_rst_header() -> None:
     lines[0] = f"{title}\n"
     lines[1] = "=" * len(title) + "\n"
 
-    with open("_api/modules.rst", "w") as file:
+    with open("api/modules.rst", "w") as file:
         file.writelines(lines)
 
 
