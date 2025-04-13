@@ -6,7 +6,7 @@
 Welcome
 *******
 
-Content to be added...
+Coming soon!
 
 .. toctree::
    :maxdepth: 2

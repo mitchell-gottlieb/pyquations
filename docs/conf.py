@@ -28,6 +28,17 @@ html_theme_options: dict = {
             "url": "https://github.com/mitchell-gottlieb/pyquations",
             "icon": "fab fa-github",
         },
+        {
+            "name": "PyPI",
+            "url": "https://pypi.org/project/pyquations/",
+            "icon": "fab fa-python",
+        },
+        {
+            "name": "Sponsor",
+            "url": "https://github.com/sponsors/mitchell-gottlieb",
+            "icon": "fas fa-heart",
+            "type": "fontawesome",
+        },
     ],
     "footer_start": ["copyright"],
     "footer_end": [],
