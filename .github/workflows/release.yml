@@ -56,7 +56,7 @@ jobs:
           pip install -r docs/requirements.txt
 
       - name: Build Documentation
-        run: sphinx-multiversion docs/ docs/_build/html
+        run: python docs/build_docs.py
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

@@ -70,6 +70,7 @@ instance/
 
 # Sphinx documentation
 docs/_build/
+docs/_api/
 
 # PyBuilder
 .pybuilder/
@@ -172,3 +173,6 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Mac
+.DS_Store

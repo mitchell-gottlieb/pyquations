@@ -45,8 +45,14 @@ local_scheme = "no-local-version"
 
 [tool.ruff]
 line-length = 88
+
+[tool.ruff.lint]
 select = ["E", "F", "W"]
 ignore = ["E501"]
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
 
 [tool.mypy]
 strict = true
