@@ -1,0 +1,21 @@
+pyquations package
+==================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyquations.algebra
+   pyquations.conversions
+   pyquations.geometry
+   pyquations.physics
+
+Module contents
+---------------
+
+.. automodule:: pyquations
+   :members:
+   :show-inheritance:
+   :undoc-members:
