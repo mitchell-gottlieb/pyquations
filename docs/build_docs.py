@@ -1,59 +1,164 @@
 import os
+import shutil
 import subprocess
 
 
+def clean_directory(dir: str) -> None:
+    """Remove directory if it exists."""
+    if os.path.exists(dir):
+        shutil.rmtree(dir)
+
+
+def collect_structure(base_dir: str) -> dict[str, list[str]]:
+    """Walk through the base directory and collect packages and modules."""
+    structure: dict[str, list[str]] = {}
+
+    for root, dirs, files in os.walk(base_dir):
+        dirs[:] = [
+            d
+            for d in dirs
+            if d != "__pycache__"
+            and not d.endswith(
+                ".egg-info",
+            )
+        ]
+
+        rel_path = os.path.relpath(root, base_dir)
+
+        if rel_path == ".":
+            rel_path = ""
+
+        py_files = [
+            f
+            for f in files
+            if f.endswith(
+                ".py",
+            )
+            and f != "__init__.py"
+        ]
+
+        if py_files:
+            structure[rel_path] = py_files
+
+    return structure
+
+
+def write_main_modules_rst(
+    modules_rst_file: str, structure: dict[str, list[str]]
+) -> None:
+    """Write the main modules.rst file."""
+    with open(modules_rst_file, "w") as f:
+        f.write("API Reference\n")
+        f.write("=============\n\n")
+        f.write(".. toctree::\n")
+        f.write("   :maxdepth: 2\n")
+        f.write("   :hidden:\n\n")
+        for package, modules in sorted(structure.items()):
+            if package:
+                f.write(f"   {package}/index\n")
+            else:
+                for module in sorted(modules):
+                    module_name = module[:-3]
+                    f.write(f"   {module_name}\n")
+
+
+def write_package_index(
+    package_dir: str, package_name: str, modules: list[str]
+) -> None:
+    """Write the index.rst file for a package."""
+    os.makedirs(package_dir, exist_ok=True)
+    package_index_file = os.path.join(package_dir, "index.rst")
+    package_name = package_name.replace("_", " ").title()
+    with open(package_index_file, "w") as f:
+        f.write(f"{package_name}\n")
+        f.write("=" * len(package_name) + "\n\n")
+        f.write(".. toctree::\n")
+        f.write("   :maxdepth: 1\n\n")
+        for module in sorted(modules):
+            module_name = module[:-3]
+            f.write(f"   {module_name}\n")
+
+
+def write_module_rst(
+    module_file: str,
+    module_name: str,
+    module_path: str,
+) -> None:
+    """Write the .rst file for a module."""
+    module_name = module_name.replace("_", " ").title()
+    with open(module_file, "w") as f:
+        f.write(f"{module_name}\n")
+        f.write("=" * len(module_name) + "\n\n")
+        f.write(f".. automodule:: {module_path}\n")
+        f.write("   :noindex:\n")
+        f.write("   :members:\n")
+        f.write("   :undoc-members:\n")
+        f.write("   :show-inheritance:\n\n")
+
+
+def generate_modules_rst(base_dir: str, output_dir: str) -> None:
+    """Generate the modules.rst file and all package/module RST files."""
+    subprocess.run(
+        [
+            "sphinx-apidoc",
+            "-o",
+            output_dir,
+            base_dir,
+        ],
+        check=True,
+    )
+    structure = collect_structure(base_dir)
+    modules_rst_file = os.path.join(output_dir, "modules.rst")
+    write_main_modules_rst(modules_rst_file, structure)
+
+    for package, modules in structure.items():
+        if package:
+            package_name = package.replace("/", ".")
+            package_dir = os.path.join(output_dir, package)
+            write_package_index(package_dir, package_name, modules)
+            for module in modules:
+                module_name = module[:-3]
+                module_file = os.path.join(package_dir, f"{module_name}.rst")
+                module_path = f"pyquations.{package_name}.{module_name}"
+                write_module_rst(module_file, module_name, module_path)
+        else:
+            for module in modules:
+                module_name = module[:-3]
+                module_file = os.path.join(output_dir, f"{module_name}.rst")
+                module_path = f"pyquations.{module_name}"
+                write_module_rst(module_file, module_name, module_path)
+
+    for file in os.listdir(output_dir):
+        if file.endswith(".rst") and file != "modules.rst":
+            os.remove(os.path.join(output_dir, file))
+
+
+def make_docs() -> None:
+    """Make the HMTL documentation."""
+    subprocess.run(["make", "clean"], check=True, cwd=".")
+    subprocess.run(["make", "html"], check=True, cwd=".")
+
+
 def build_docs() -> None:
-    # Clean Old RST Files for pyquations
-    clean_cmd: list[str] = [
-        "rm",
-        "-rf",
-        "api/*",
-    ]
-    subprocess.run(clean_cmd, check=True)
+    """Build the Sphinx documentation."""
+    base_dir: str = "../pyquations"
+    output_dir: str = "api"
+    build_dir: str = "_build"
 
-    # Build RST Files for pyquations
-    # TODO: Make fail on any error/warning
-    sphinx_apidoc_cmd: list[str] = [
-        "sphinx-apidoc",
-        "-o",
-        "api",
-        "../pyquations",
-    ]
-    subprocess.run(sphinx_apidoc_cmd, check=True)
+    # Clean the Build Directory
+    clean_directory(build_dir)
 
-    rename_rst_header()
+    # Clean the Output Directory
+    clean_directory(output_dir)
 
-    # Clean Previous Builds
-    make_clean_cmd: list[str] = ["make", "clean"]
-    subprocess.run(make_clean_cmd, check=True, cwd=".")
+    # Generate RST Files
+    generate_modules_rst(base_dir, output_dir)
 
-    # Create HTML Documentation
-    make_html_cmd: list[str] = ["make", "html"]
-    subprocess.run(make_html_cmd, check=True, cwd=".")
-
-
-def rename_rst_header() -> None:
-    # Rename the header of the api/modules.rst file
-    with open("api/modules.rst", "r") as file:
-        lines: list[str] = file.readlines()
-
-    # Modify the first line
-    title: str = "API Reference"
-    lines[0] = f"{title}\n"
-    lines[1] = "=" * len(title) + "\n"
-
-    with open("api/modules.rst", "w") as file:
-        file.writelines(lines)
+    # Make the Documentation
+    make_docs()
 
 
 if __name__ == "__main__":
-    try:
-        # Change working directory to the directory of this script
-        script_dir: str = os.path.dirname(os.path.abspath(__file__))
-        os.chdir(script_dir)
-
-        build_docs()
-        print("Documentation build completed successfully.")
-
-    except subprocess.CalledProcessError as e:
-        print(f"An error occurred: {e}")
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    os.chdir(script_dir)
+    build_docs()
