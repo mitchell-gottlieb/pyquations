@@ -134,7 +134,7 @@ def generate_modules_rst(base_dir: str, output_dir: str) -> None:
 
 
 def make_docs() -> None:
-    """Make the HMTL documentation."""
+    """Make the HTML documentation."""
     subprocess.run(["make", "clean"], check=True, cwd=".")
     subprocess.run(["make", "html"], check=True, cwd=".")
 
