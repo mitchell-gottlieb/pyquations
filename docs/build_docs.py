@@ -133,32 +133,32 @@ def generate_modules_rst(base_dir: str, output_dir: str) -> None:
             os.remove(os.path.join(output_dir, file))
 
 
-def make_docs() -> None:
+def make_docs(docs_dir: str) -> None:
     """Make the HTML documentation."""
-    subprocess.run(["make", "clean"], check=True, cwd=".")
-    subprocess.run(["make", "html"], check=True, cwd=".")
+    subprocess.run(["make", "clean"], check=True, cwd=docs_dir)
+    subprocess.run(["make", "html"], check=True, cwd=docs_dir)
 
 
 def build_docs() -> None:
     """Build the Sphinx documentation."""
-    base_dir: str = "../pyquations"
-    output_dir: str = "api"
-    build_dir: str = "_build"
+    # Setup Directories
+    docs_dir: str = os.path.dirname(os.path.abspath(__file__))
+    package_dir: str = os.path.abspath(os.path.join(docs_dir, "../pyquations"))
+    rst_dir: str = os.path.join(docs_dir, "api")
+    html_dir: str = os.path.join(docs_dir, "_build")
 
     # Clean the Build Directory
-    clean_directory(build_dir)
+    clean_directory(html_dir)
 
     # Clean the Output Directory
-    clean_directory(output_dir)
+    clean_directory(rst_dir)
 
     # Generate RST Files
-    generate_modules_rst(base_dir, output_dir)
+    generate_modules_rst(package_dir, rst_dir)
 
     # Make the Documentation
-    make_docs()
+    make_docs(docs_dir)
 
 
 if __name__ == "__main__":
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    os.chdir(script_dir)
     build_docs()
