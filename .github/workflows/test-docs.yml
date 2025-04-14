@@ -30,7 +30,7 @@ jobs:
           pip install -r docs/requirements.txt
 
       - name: Set Python
-        run: echo 'PYTHONPATH="$PYTHONPATH:$(pwd)"' >> $GITHUB_ENV
+        run: echo PYTHONPATH="$PYTHONPATH":"$(pwd)" >> $GITHUB_ENV
 
       - name: Test Build Documentation
         run: python docs/build_docs.py
