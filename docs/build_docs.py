@@ -50,6 +50,7 @@ def write_main_modules_rst(
     with open(modules_rst_file, "w") as f:
         f.write("API Reference\n")
         f.write("=============\n\n")
+        f.write(".. include:: ../_templates/api_index.rst\n\n")
         f.write(".. toctree::\n")
         f.write("   :maxdepth: 2\n")
         f.write("   :hidden:\n\n")
