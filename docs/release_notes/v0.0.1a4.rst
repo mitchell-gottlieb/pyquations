@@ -7,6 +7,7 @@ Features
 --------
 - Improved the documentation build process and cleaned documentation paths.
 - Format the documentation site to improve readability and user experience.
+- Added initial content to the User Guide.
 
 Bug Fixes
 ---------
