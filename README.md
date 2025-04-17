@@ -13,3 +13,7 @@
 - **Save Time**: No need to reprogram equations from scratch.
 - **Reliability**: Built-in equations are tested and ready to use.
 - **Ease of Use**: Simple, intuitive API for quick integration into your projects.
+
+## Learn More
+
+Check out the [official pyquations documentation](https://pyquations.com/) to explore and learn more!
