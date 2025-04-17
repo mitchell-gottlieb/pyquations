@@ -1,5 +1,5 @@
 ==========================
-v0.0.1a4 (Month Day, YYYY)
+v0.0.1a4 (April 17, 2025)
 ==========================
 
 .. include:: ../_templates/alpha_warning.rst
