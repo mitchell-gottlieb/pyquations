@@ -1,10 +1,11 @@
+==============
 Import Options
 ==============
 
 Pyquations provides flexible options for imports. Choose the method that best suits your needs.
 
 Option 1: Import Everything
-----------------------------
+===========================
 Import the entire package to access all equations.
 
 .. code-block:: python
@@ -18,7 +19,7 @@ Import the entire package to access all equations.
    pyquations.algebra.quadratic_formula(1, 2, 3)
 
 Option 2: Import a Specific Module
-----------------------------------
+==================================
 If you only need a specific module, you can import it directly.
 
 .. code-block:: python
@@ -28,7 +29,7 @@ If you only need a specific module, you can import it directly.
    algebra.quadratic_formula(1, 2, 3)
 
 Option 3: Import Specific Functions
-------------------------------------
+===================================
 If you only need specific equations, you can import them directly.
 
 .. code-block:: python
