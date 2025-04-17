@@ -1,0 +1,13 @@
+API Reference
+=============
+
+.. include:: ../_templates/api_index.rst
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+
+   algebra/index
+   conversions/index
+   geometry/index
+   physics/index

@@ -1,0 +1,9 @@
+Quadratic Formula
+=================
+
+.. automodule:: pyquations.algebra.quadratic_formula
+   :noindex:
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

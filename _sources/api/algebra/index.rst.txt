@@ -1,0 +1,7 @@
+Algebra
+=======
+
+.. toctree::
+   :maxdepth: 1
+
+   quadratic_formula

@@ -1,0 +1,9 @@
+Speed
+=====
+
+.. automodule:: pyquations.conversions.speed
+   :noindex:
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

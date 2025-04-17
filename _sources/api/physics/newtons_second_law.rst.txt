@@ -1,0 +1,9 @@
+Newtons Second Law
+==================
+
+.. automodule:: pyquations.physics.newtons_second_law
+   :noindex:
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

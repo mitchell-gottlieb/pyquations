@@ -1,0 +1,9 @@
+Pythagorean Theorem
+===================
+
+.. automodule:: pyquations.geometry.pythagorean_theorem
+   :noindex:
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
