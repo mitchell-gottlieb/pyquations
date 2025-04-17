@@ -16,4 +16,4 @@
 
 ## Learn More
 
-Checkout the [official pyquations documentation](https://pyquations.com/) to explore and learn more!
+Check out the [official pyquations documentation](https://pyquations.com/) to explore and learn more!
