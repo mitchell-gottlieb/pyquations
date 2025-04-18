@@ -11,3 +11,4 @@ Features
 Bug Fixes
 =========
 - Switch from GitHub Token to SSH key for deployments to a ruleset protected branch.
+- Added CNAME to release workflow to ensure the correct domain is used for the documentation.

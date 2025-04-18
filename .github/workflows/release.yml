@@ -68,3 +68,4 @@ jobs:
         with:
           deploy_key: ${{ secrets.GH_PAGES_DEPLOY_KEY }}
           publish_dir: docs/_build/html
+          cname: pyquations.com
