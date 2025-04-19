@@ -5,7 +5,7 @@ BUILDDIR = _build
 .PHONY: html clean
 
 html:
-	$(SPHINXBUILD) -b html $(SOURCEDIR) $(BUILDDIR)/html --fail-on-warning
+	$(SPHINXBUILD) -b html $(SOURCEDIR) $(BUILDDIR)/html -W -n -a
 
 clean:
 	rm -rf $(BUILDDIR)

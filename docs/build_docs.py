@@ -71,6 +71,7 @@ def write_package_index(
     package_index_file = os.path.join(package_dir, "index.rst")
     package_name = package_name.replace("_", " ").title()
     with open(package_index_file, "w") as f:
+        f.write("=" * len(package_name) + "\n")
         f.write(f"{package_name}\n")
         f.write("=" * len(package_name) + "\n\n")
         f.write(".. toctree::\n")
@@ -88,6 +89,7 @@ def write_module_rst(
     """Write the .rst file for a module."""
     module_name = module_name.replace("_", " ").title()
     with open(module_file, "w") as f:
+        f.write("=" * len(module_name) + "\n")
         f.write(f"{module_name}\n")
         f.write("=" * len(module_name) + "\n\n")
         f.write(f".. automodule:: {module_path}\n")
