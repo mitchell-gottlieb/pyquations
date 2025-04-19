@@ -138,8 +138,19 @@ def generate_modules_rst(base_dir: str, output_dir: str) -> None:
 
 def make_docs(docs_dir: str) -> None:
     """Make the HTML documentation."""
-    subprocess.run(["make", "clean"], check=True, cwd=docs_dir)
-    subprocess.run(["make", "html"], check=True, cwd=docs_dir)
+    subprocess.run(
+        [
+            "sphinx-build",
+            "-b",
+            "html",
+            docs_dir,
+            os.path.join(docs_dir, "_build", "html"),
+            "-W",
+            "-n",
+            "-a",
+        ],
+        check=True,
+    )
 
 
 def build_docs() -> None:
@@ -149,6 +160,11 @@ def build_docs() -> None:
     package_dir: str = os.path.abspath(os.path.join(docs_dir, "../pyquations"))
     rst_dir: str = os.path.join(docs_dir, "api")
     html_dir: str = os.path.join(docs_dir, "_build")
+
+    # Update Python Path with Package
+    os.environ["PYTHONPATH"] = os.pathsep.join(
+        [os.environ.get("PYTHONPATH", ""), package_dir]
+    )
 
     # Clean the Build Directory
     clean_directory(html_dir)
