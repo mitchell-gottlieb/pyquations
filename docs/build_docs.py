@@ -166,6 +166,9 @@ def build_docs() -> None:
         [os.environ.get("PYTHONPATH", ""), package_dir]
     )
 
+    # Remove Coverage Environment Variable
+    os.environ.pop("COVERAGE_PROCESS_START", None)
+
     # Clean the Build Directory
     clean_directory(html_dir)
 
