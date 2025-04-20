@@ -9,8 +9,6 @@ from pyquations.geometry.pythagorean_theorem import pythagorean_theorem
         (3, 4, 5),
         (5, 12, 13),
         (8, 15, 17),
-        (0, 0, 0),
-        (0, 5, 5),
         (1.5, 2, pytest.approx(2.5)),
     ],
 )
@@ -24,6 +22,7 @@ def test_pythagorean_theorem(a, b, expected):
         (-3, 4),
         (3, -4),
         (-3, -4),
+        (0, 0),
     ],
 )
 def test_pythagorean_theorem_invalid(a, b):
