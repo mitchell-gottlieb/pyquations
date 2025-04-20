@@ -41,6 +41,7 @@
     <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/physics/newtons_second_law';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -422,9 +423,31 @@
 <h1>Newtons Second Law<a class="headerlink" href="#newtons-second-law" title="Link to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">pyquations.physics.newtons_second_law.</span></span><span class="sig-name descname"><span class="pre">newtons_second_law</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../../_modules/pyquations/physics/newtons_second_law.html#newtons_second_law"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>This function calculates the force exerted on an object using Newton’s
-second law of motion: F = m * a.</p>
+<span class="sig-prename descclassname"><span class="pre">pyquations.physics.newtons_second_law.</span></span><span class="sig-name descname"><span class="pre">newtons_second_law</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../../_modules/pyquations/physics/newtons_second_law.html#newtons_second_law"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Solve for one variable in Newton’s second law of motion given the other
+two.</p>
+<p>The acceleration of an object depends on the mass of the object and the
+amount of force applied. <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<div class="math notranslate nohighlight">
+\[F = m \cdot a\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F\)</span> is the force in newtons (N).</p></li>
+<li><p><span class="math notranslate nohighlight">\(m\)</span> is the mass in kilograms (kg).</p></li>
+<li><p><span class="math notranslate nohighlight">\(a\)</span> is the acceleration in meters per second squared (m/s²).</p></li>
+</ul>
+<p>Newton’s second law of motion pertains to the behavior of objects for
+which all existing forces are not balanced. The second law states that the
+acceleration of an object is dependent upon two variables - the net force
+acting upon the object and the mass of the object. The acceleration of an
+object depends directly upon the net force acting upon the object, and
+inversely upon the mass of the object. As the force acting upon an object
+is increased, the acceleration of the object is increased. As the mass of
+an object is increased, the acceleration of the object is decreased. <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Provide 2 of the 3 parameters. The method will solve for the third.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -432,6 +455,8 @@ second law of motion: F = m * a.</p>
 non-negative.</p></li>
 <li><p><strong>acceleration</strong> (<em>float</em>) – The acceleration of the object in meters per
 second squared.</p></li>
+<li><p><strong>force</strong> (<em>float</em>) – The force exerted on the object in newtons. Must be
+non-negative.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -441,9 +466,43 @@ second squared.</p></li>
 <dd class="field-odd"><p>float</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If ‘mass’ is negative.</p>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – If there aren’t exactly 2 parameters provided.</p></li>
+<li><p><strong>ValueError</strong> – If mass is provided and is not greater than zero.</p></li>
+<li><p><strong>ValueError</strong> – If acceleration is provided and is not greater than zero.</p></li>
+<li><p><strong>ValueError</strong> – If force is provided and is negative.</p></li>
+</ul>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>Solve for Force</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">newtons_second_law</span><span class="p">(</span><span class="n">mass</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">acceleration</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">20.0</span>
+</pre></div>
+</div>
+<p>Solve for Mass</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">newtons_second_law</span><span class="p">(</span><span class="n">force</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">acceleration</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">10.0</span>
+</pre></div>
+</div>
+<p>Solve for Acceleration</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">newtons_second_law</span><span class="p">(</span><span class="n">force</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">2.0</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id3" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>“Newton’s Second Law: Force”, NASA.
+<a class="reference external" href="https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/newtons-laws-of-motion/#newtons-second-law-force">https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/newtons-laws-of-motion/#newtons-second-law-force</a></p>
+</aside>
+<aside class="footnote brackets" id="id4" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>“Newton’s Second Law of Motion”, The Physics Classroom.
+<a class="reference external" href="https://www.physicsclassroom.com/class/newtlaws/lesson-3/newton-s-second-law">https://www.physicsclassroom.com/class/newtlaws/lesson-3/newton-s-second-law</a></p>
+</aside>
+</aside>
 </dd></dl>
 
 </section>

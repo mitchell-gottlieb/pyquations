@@ -394,8 +394,20 @@
 <div class="viewcode-block" id="pythagorean_theorem">
 <a class="viewcode-back" href="../../../api/geometry/pythagorean_theorem.html#pyquations.geometry.pythagorean_theorem.pythagorean_theorem">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">pythagorean_theorem</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function calculates the hypotenuse of a right triangle using the</span>
-<span class="sd">    Pythagorean theorem: c^2 = a^2 + b^2.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the length of the hypotenuse for a right triangle.</span>
+
+<span class="sd">    The area of the square whose side is the hypotenuse is equal to the sum of</span>
+<span class="sd">    the areas of the squares on the other two sides. [1]_</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        c^2 = a^2 + b^2</span>
+
+<span class="sd">    Where:</span>
+
+<span class="sd">    - :math:`a` is the length of one leg of the triangle.</span>
+<span class="sd">    - :math:`b` is the length of the other leg of the triangle.</span>
+<span class="sd">    - :math:`c` is the length of the hypotenuse.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        a (float): Length of one leg of the triangle. Must be non-negative.</span>
@@ -406,11 +418,29 @@
 <span class="sd">        float: The length of the hypotenuse.</span>
 
 <span class="sd">    Raises:</span>
-<span class="sd">        ValueError: If either &#39;a&#39; or &#39;b&#39; is negative.</span>
+<span class="sd">        ValueError: If either &#39;a&#39; or &#39;b&#39; is not greater than 0.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; pythagorean_theorem(3, 4)</span>
+<span class="sd">        5.0</span>
+
+<span class="sd">        &gt;&gt;&gt; pythagorean_theorem(5, 12)</span>
+<span class="sd">        13.0</span>
+
+<span class="sd">        &gt;&gt;&gt; pythagorean_theorem(8, 15)</span>
+<span class="sd">        17.0</span>
+
+<span class="sd">    Resources:</span>
+<span class="sd">        - `Math is Fun: Pythagorean Theorem &lt;https://www.mathsisfun.com/</span>
+<span class="sd">          pythagoras.html&gt;`_</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        .. [1] &quot;Pythagorean Theorem&quot;, Wikipedia.</span>
+<span class="sd">            https://en.wikipedia.org/wiki/Pythagorean_theorem</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-            <span class="s2">&quot;Lengths of the triangle&#39;s legs must be non-negative.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Lengths of the triangle&#39;s legs must be greater than zero.&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span></div>

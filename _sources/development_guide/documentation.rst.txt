@@ -38,6 +38,50 @@ Each function's docstring should include the following sections when applicable:
 5. **Examples**: One or more usage examples demonstrating how to call the function.
 6. **References**: Links or citations to external resources or related documentation.
 
+Template Docstring
+------------------
+
+.. code-block:: python
+
+    def example_function(param1: int, param2: str = "default") -> bool:
+        """Brief description of the function.
+
+        Brief description of the equations with sources if used. [1]_
+
+        .. math::
+
+            Equation here
+
+        Where:
+
+        - variable1: Description of variable1.
+        - variable2: Description of variable2.
+  
+        Additional details and sited sources (optional).
+
+        Args:
+            param1 (int): Description of param1.
+            param2 (str, optional): Description of param2. Defaults to "default".
+
+        Returns:
+            bool: Description of the return value.
+
+        Raises:
+            ValueError: Description of the error condition.
+
+        Examples:
+            >>> example_function(1, "test")
+            True
+
+        Resources:
+            - Link to helpful resources or documentation.
+
+        References:
+            .. [1] Article Title, Source.
+                Link to article.
+        """
+        pass
+
 Building the Documentation Locally
 ==================================
 

@@ -390,25 +390,97 @@
   <h1>Source code for pyquations.physics.newtons_second_law</h1><div class="highlight"><pre>
 <div class="viewcode-block" id="newtons_second_law">
 <a class="viewcode-back" href="../../../api/physics/newtons_second_law.html#pyquations.physics.newtons_second_law.newtons_second_law">[docs]</a>
-<span></span><span class="k">def</span><span class="w"> </span><span class="nf">newtons_second_law</span><span class="p">(</span><span class="n">mass</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">acceleration</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function calculates the force exerted on an object using Newton&#39;s</span>
-<span class="sd">    second law of motion: F = m * a.</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">newtons_second_law</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">mass</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">acceleration</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">force</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Solve for one variable in Newton&#39;s second law of motion given the other</span>
+<span class="sd">    two.</span>
+
+<span class="sd">    The acceleration of an object depends on the mass of the object and the</span>
+<span class="sd">    amount of force applied. [1]_</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        F = m \\cdot a</span>
+
+<span class="sd">    Where:</span>
+
+<span class="sd">    - :math:`F` is the force in newtons (N).</span>
+<span class="sd">    - :math:`m` is the mass in kilograms (kg).</span>
+<span class="sd">    - :math:`a` is the acceleration in meters per second squared (m/s²).</span>
+
+<span class="sd">    Newton&#39;s second law of motion pertains to the behavior of objects for</span>
+<span class="sd">    which all existing forces are not balanced. The second law states that the</span>
+<span class="sd">    acceleration of an object is dependent upon two variables - the net force</span>
+<span class="sd">    acting upon the object and the mass of the object. The acceleration of an</span>
+<span class="sd">    object depends directly upon the net force acting upon the object, and</span>
+<span class="sd">    inversely upon the mass of the object. As the force acting upon an object</span>
+<span class="sd">    is increased, the acceleration of the object is increased. As the mass of</span>
+<span class="sd">    an object is increased, the acceleration of the object is decreased. [2]_</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        Provide 2 of the 3 parameters. The method will solve for the third.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        mass (float): The mass of the object in kilograms. Must be</span>
 <span class="sd">            non-negative.</span>
 <span class="sd">        acceleration (float): The acceleration of the object in meters per</span>
 <span class="sd">            second squared.</span>
+<span class="sd">        force (float): The force exerted on the object in newtons. Must be</span>
+<span class="sd">            non-negative.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        float: The force exerted on the object in newtons (N).</span>
 
 <span class="sd">    Raises:</span>
-<span class="sd">        ValueError: If &#39;mass&#39; is negative.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">mass</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Mass must be non-negative.&quot;</span><span class="p">)</span>
+<span class="sd">        ValueError: If there aren&#39;t exactly 2 parameters provided.</span>
+<span class="sd">        ValueError: If mass is provided and is not greater than zero.</span>
+<span class="sd">        ValueError: If acceleration is provided and is not greater than zero.</span>
+<span class="sd">        ValueError: If force is provided and is negative.</span>
 
+<span class="sd">    Examples:</span>
+<span class="sd">        Solve for Force</span>
+
+<span class="sd">        &gt;&gt;&gt; newtons_second_law(mass=10, acceleration=2)</span>
+<span class="sd">        20.0</span>
+
+<span class="sd">        Solve for Mass</span>
+
+<span class="sd">        &gt;&gt;&gt; newtons_second_law(force=20, acceleration=2)</span>
+<span class="sd">        10.0</span>
+
+<span class="sd">        Solve for Acceleration</span>
+
+<span class="sd">        &gt;&gt;&gt; newtons_second_law(force=20, mass=10)</span>
+<span class="sd">        2.0</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        .. [1] &quot;Newton&#39;s Second Law: Force&quot;, NASA.</span>
+<span class="sd">            https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/newtons-laws-of-motion/#newtons-second-law-force</span>
+<span class="sd">        .. [2] &quot;Newton&#39;s Second Law of Motion&quot;, The Physics Classroom.</span>
+<span class="sd">            https://www.physicsclassroom.com/class/newtlaws/lesson-3/newton-s-second-law</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Validate that exactly two parameters are provided</span>
+    <span class="n">provided</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="n">mass</span><span class="p">,</span> <span class="n">acceleration</span><span class="p">,</span> <span class="n">force</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">provided</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Exactly two parameters must be provided.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Validate the provided parameters</span>
+    <span class="k">if</span> <span class="n">mass</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">mass</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Mass must be greater than zero.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">acceleration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">acceleration</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Acceleration must be greater than zero.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">force</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">force</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Force must be non-negative.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Perform the calculations</span>
+    <span class="k">if</span> <span class="n">mass</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">force</span> <span class="o">/</span> <span class="n">acceleration</span>
+    <span class="k">if</span> <span class="n">acceleration</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">force</span> <span class="o">/</span> <span class="n">mass</span>
     <span class="k">return</span> <span class="n">mass</span> <span class="o">*</span> <span class="n">acceleration</span></div>
 
 </pre></div>

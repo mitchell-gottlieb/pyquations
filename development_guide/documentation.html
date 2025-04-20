@@ -442,6 +442,49 @@
 <li><p><strong>Examples</strong>: One or more usage examples demonstrating how to call the function.</p></li>
 <li><p><strong>References</strong>: Links or citations to external resources or related documentation.</p></li>
 </ol>
+<section id="template-docstring">
+<h3>Template Docstring<a class="headerlink" href="#template-docstring" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">example_function</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Brief description of the function.</span>
+
+<span class="sd">    Brief description of the equations with sources if used. [1]_</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        Equation here</span>
+
+<span class="sd">    Where:</span>
+
+<span class="sd">    - variable1: Description of variable1.</span>
+<span class="sd">    - variable2: Description of variable2.</span>
+
+<span class="sd">    Additional details and sited sources (optional).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        param1 (int): Description of param1.</span>
+<span class="sd">        param2 (str, optional): Description of param2. Defaults to &quot;default&quot;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: Description of the return value.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: Description of the error condition.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; example_function(1, &quot;test&quot;)</span>
+<span class="sd">        True</span>
+
+<span class="sd">    Resources:</span>
+<span class="sd">        - Link to helpful resources or documentation.</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        .. [1] Article Title, Source.</span>
+<span class="sd">            Link to article.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="building-the-documentation-locally">
 <h2>Building the Documentation Locally<a class="headerlink" href="#building-the-documentation-locally" title="Link to this heading">#</a></h2>
@@ -507,7 +550,10 @@
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-expectations">Documentation Expectations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-documentation-dependencies">Installing Documentation Dependencies</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-docstrings">Writing Docstrings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-docstrings">Writing Docstrings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#template-docstring">Template Docstring</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-documentation-locally">Building the Documentation Locally</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-requests">Pull Requests</a></li>
 </ul>

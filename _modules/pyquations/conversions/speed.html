@@ -414,6 +414,19 @@
 
 <span class="sd">    Raises:</span>
 <span class="sd">        ValueError: If the speed is negative or if the units are invalid.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; speed(60, &quot;mph&quot;, &quot;kph&quot;)</span>
+<span class="sd">        96.56064</span>
+
+<span class="sd">        &gt;&gt;&gt; speed(100, &quot;kph&quot;, &quot;mps&quot;)</span>
+<span class="sd">        27.7778</span>
+
+<span class="sd">        &gt;&gt;&gt; speed(30, &quot;fps&quot;, &quot;ips&quot;)</span>
+<span class="sd">        360.0</span>
+
+<span class="sd">        &gt;&gt;&gt; speed(10, &quot;mps&quot;, &quot;knots&quot;)</span>
+<span class="sd">        19.4384</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">speed</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Speed must be non-negative.&quot;</span><span class="p">)</span>
@@ -441,7 +454,7 @@
     <span class="p">}</span>
 
     <span class="k">if</span> <span class="n">from_unit</span> <span class="o">==</span> <span class="n">to_unit</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">speed</span>  <span class="c1"># No conversion needed</span>
+        <span class="k">return</span> <span class="n">speed</span>
 
     <span class="k">try</span><span class="p">:</span>
         <span class="n">factor</span> <span class="o">=</span> <span class="n">conversion_factors</span><span class="p">[(</span><span class="n">from_unit</span><span class="p">,</span> <span class="n">to_unit</span><span class="p">)]</span>

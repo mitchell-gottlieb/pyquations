@@ -15,12 +15,12 @@ Import the entire package to access all equations.
    # Call a function directly
    pyquations.quadratic_formula(1, 2, 3)
 
-   # Or access it via module
+   # Or access it via the algebra package
    pyquations.algebra.quadratic_formula(1, 2, 3)
 
-Option 2: Import a Specific Module
-==================================
-If you only need a specific module, you can import it directly.
+Option 2: Import a Specific Package
+===================================
+If you only need a specific package, you can import it directly.
 
 .. code-block:: python
 
@@ -28,8 +28,8 @@ If you only need a specific module, you can import it directly.
 
    algebra.quadratic_formula(1, 2, 3)
 
-Option 3: Import Specific Functions
-===================================
+Option 3: Import Specific Module
+================================
 If you only need specific equations, you can import them directly.
 
 .. code-block:: python

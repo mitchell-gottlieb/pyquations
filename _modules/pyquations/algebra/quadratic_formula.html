@@ -395,7 +395,14 @@
 <div class="viewcode-block" id="quadratic_formula">
 <a class="viewcode-back" href="../../../api/algebra/quadratic_formula.html#pyquations.algebra.quadratic_formula.quadratic_formula">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">quadratic_formula</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">complex</span><span class="p">,</span> <span class="nb">complex</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function calculates the roots of a quadratic equation of the form:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the roots of a quadratic equation.</span>
+
+<span class="sd">    The quadratic formula is a closed-form expression describing the solutions</span>
+<span class="sd">    of a quadratic equation. Other ways of solving quadratic equations, such</span>
+<span class="sd">    as completing the square, yield the same solutions. [1]_</span>
+
+<span class="sd">    .. math::</span>
+
 <span class="sd">        ax^2 + bx + c = 0</span>
 
 <span class="sd">    Args:</span>
@@ -411,6 +418,21 @@
 <span class="sd">    Raises:</span>
 <span class="sd">        ValueError: If &#39;a&#39; is zero, as this would not represent a quadratic</span>
 <span class="sd">            equation.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; quadratic_formula(1, -3, 2)</span>
+<span class="sd">        (2.0, 1.0)</span>
+
+<span class="sd">        &gt;&gt;&gt; quadratic_formula(1, 2, 5)</span>
+<span class="sd">        (-1+2j, -1-2j)</span>
+
+<span class="sd">    Resources:</span>
+<span class="sd">        - `Calculator Soup: Quadratic Formula &lt;https://www.calculatorsoup.com/</span>
+<span class="sd">          calculators/algebra/quadratic-formula-calculator.php&gt;`_</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        .. [1] &quot;Quadratic Formula&quot;, Wikipedia.</span>
+<span class="sd">            https://en.wikipedia.org/wiki/Quadratic_formula</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>

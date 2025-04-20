@@ -41,6 +41,7 @@
     <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/geometry/pythagorean_theorem';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -423,8 +424,17 @@
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">pyquations.geometry.pythagorean_theorem.</span></span><span class="sig-name descname"><span class="pre">pythagorean_theorem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../../_modules/pyquations/geometry/pythagorean_theorem.html#pythagorean_theorem"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>This function calculates the hypotenuse of a right triangle using the
-Pythagorean theorem: c^2 = a^2 + b^2.</p>
+<dd><p>Calculates the length of the hypotenuse for a right triangle.</p>
+<p>The area of the square whose side is the hypotenuse is equal to the sum of
+the areas of the squares on the other two sides. <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<div class="math notranslate nohighlight">
+\[c^2 = a^2 + b^2\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(a\)</span> is the length of one leg of the triangle.</p></li>
+<li><p><span class="math notranslate nohighlight">\(b\)</span> is the length of the other leg of the triangle.</p></li>
+<li><p><span class="math notranslate nohighlight">\(c\)</span> is the length of the hypotenuse.</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -440,9 +450,36 @@ non-negative.</p></li>
 <dd class="field-odd"><p>float</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If either ‘a’ or ‘b’ is negative.</p>
+<dd class="field-even"><p><strong>ValueError</strong> – If either ‘a’ or ‘b’ is not greater than 0.</p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pythagorean_theorem</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">5.0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pythagorean_theorem</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="go">13.0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pythagorean_theorem</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="go">17.0</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Resources:</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://www.mathsisfun.com/pythagoras.html">Math is Fun: Pythagorean Theorem</a></p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>“Pythagorean Theorem”, Wikipedia.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Pythagorean_theorem">https://en.wikipedia.org/wiki/Pythagorean_theorem</a></p>
+</aside>
+</aside>
 </dd></dl>
 
 </section>
