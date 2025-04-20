@@ -85,8 +85,8 @@ def newtons_second_law(
         raise ValueError("Force must be non-negative.")
 
     # Perform the calculations
-    if not mass:
+    if mass is None:
         return force / acceleration
-    if not acceleration:
+    if acceleration is None:
         return force / mass
     return mass * acceleration
