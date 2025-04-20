@@ -49,7 +49,7 @@ def speed(speed: float, from_unit: str, to_unit: str) -> float:
     }
 
     if from_unit == to_unit:
-        return speed  # No conversion needed
+        return speed
 
     try:
         factor = conversion_factors[(from_unit, to_unit)]
