@@ -22,6 +22,19 @@ def speed(speed: float, from_unit: str, to_unit: str) -> float:
 
     Raises:
         ValueError: If the speed is negative or if the units are invalid.
+
+    Examples:
+        >>> speed(60, "mph", "kph")
+        96.56064
+
+        >>> speed(100, "kph", "mps")
+        27.7778
+
+        >>> speed(30, "fps", "ips")
+        360.0
+
+        >>> speed(10, "mps", "knots")
+        19.4384
     """
     if speed < 0:
         raise ValueError("Speed must be non-negative.")
