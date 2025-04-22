@@ -1,0 +1,13 @@
+=========================
+v0.1.0b2 (Month DD, 2025)
+=========================
+
+.. include:: ../_templates/beta_warning.rst
+
+Features
+========
+- N/A
+
+Bug Fixes
+=========
+- N/A
