@@ -40,7 +40,7 @@ def speed(speed: float, from_unit: str, to_unit: str) -> float:
         raise ValueError("Speed must be non-negative.")
 
     # Conversion factors
-    conversion_factors = {
+    conversion_factors: dict[tuple[str, str], float] = {
         ("mph", "kph"): 1.60934,
         ("kph", "mph"): 1 / 1.60934,
         ("mph", "mps"): 0.44704,

@@ -1,8 +1,7 @@
 import cmath
-from typing import Tuple
 
 
-def quadratic_formula(a: float, b: float, c: float) -> Tuple[complex, complex]:
+def quadratic_formula(a: float, b: float, c: float) -> tuple[complex, complex]:
     """Calculates the roots of a quadratic equation.
 
     The quadratic formula is a closed-form expression describing the solutions
