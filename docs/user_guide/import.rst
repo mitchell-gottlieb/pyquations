@@ -15,7 +15,7 @@ Import the entire package to access all equations.
    # Call a function directly
    pyquations.quadratic_formula(1, 2, 3)
 
-   # Or access it via the algebra package
+   # Or access it via a package
    pyquations.algebra.quadratic_formula(1, 2, 3)
 
 Option 2: Import a Specific Package
