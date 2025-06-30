@@ -40,8 +40,3 @@ def distance(x1: float, y1: float, x2: float, y2: float) -> float:
             https://en.wikipedia.org/wiki/Distance#Geometry
     """
     return sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
-
-
-print(distance(0, 0, 3, 4))
-print(distance(1, 2, 4, 6))
-print(distance(-2, -3, 2, 3))
