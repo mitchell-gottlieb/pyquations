@@ -28,7 +28,7 @@ def test_speed(
         speed_value,
         from_unit,
         to_unit,
-    ) == pytest.approx(  # type: ignore
+    ) == pytest.approx(
         expected,
         rel=1e-4,
     )

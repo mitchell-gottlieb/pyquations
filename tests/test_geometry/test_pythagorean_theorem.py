@@ -9,7 +9,7 @@ from pyquations.geometry.pythagorean_theorem import pythagorean_theorem
         (3, 4, 5),
         (5, 12, 13),
         (8, 15, 17),
-        (1.5, 2, pytest.approx(2.5)),  # type: ignore
+        (1.5, 2, pytest.approx(2.5)),
     ],
 )
 def test_pythagorean_theorem(a: float, b: float, expected: float):

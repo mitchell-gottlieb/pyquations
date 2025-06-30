@@ -21,4 +21,4 @@ def test_quadratic_formula(
             quadratic_formula(a, b, c)
     else:
         result: tuple[complex, complex] = quadratic_formula(a, b, c)
-        assert result == pytest.approx(expected)  # type: ignore
+        assert result == pytest.approx(expected)
