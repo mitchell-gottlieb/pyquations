@@ -15,7 +15,7 @@ from pyquations.algebra.quadratic_formula import quadratic_formula
 )
 def test_quadratic_formula(
     a: float, b: float, c: float, expected: tuple[complex, complex] | None
-):
+) -> None:
     if expected is None:
         with pytest.raises(ValueError):
             quadratic_formula(a, b, c)

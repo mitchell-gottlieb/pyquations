@@ -25,7 +25,7 @@ def test_newtons_second_law(
     acceleration: float | None,
     force: float | None,
     expected: float,
-):
+) -> None:
     assert (
         newtons_second_law(mass=mass, acceleration=acceleration, force=force)
         == expected
@@ -47,6 +47,6 @@ def test_newtons_second_law(
 )
 def test_newtons_second_law_invalid(
     mass: float | None, acceleration: float | None, force: float | None
-):
+) -> None:
     with pytest.raises(ValueError):
         newtons_second_law(mass=mass, acceleration=acceleration, force=force)

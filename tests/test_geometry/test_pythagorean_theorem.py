@@ -12,7 +12,7 @@ from pyquations.geometry.pythagorean_theorem import pythagorean_theorem
         (1.5, 2, pytest.approx(2.5)),
     ],
 )
-def test_pythagorean_theorem(a: float, b: float, expected: float):
+def test_pythagorean_theorem(a: float, b: float, expected: float) -> None:
     assert pythagorean_theorem(a, b) == expected
 
 
@@ -25,6 +25,6 @@ def test_pythagorean_theorem(a: float, b: float, expected: float):
         (0, 0),
     ],
 )
-def test_pythagorean_theorem_invalid(a: float, b: float):
+def test_pythagorean_theorem_invalid(a: float, b: float) -> None:
     with pytest.raises(ValueError):
         pythagorean_theorem(a, b)
