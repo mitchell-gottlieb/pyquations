@@ -1,4 +1,4 @@
-from math import sqrt
+from math import hypot
 
 
 def distance(x1: float, y1: float, x2: float, y2: float) -> float:
@@ -39,4 +39,4 @@ def distance(x1: float, y1: float, x2: float, y2: float) -> float:
         .. [1] "Distance", Wikipedia.
             https://en.wikipedia.org/wiki/Distance#Geometry
     """
-    return sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+    return hypot(x2 - x1, y2 - y1)
