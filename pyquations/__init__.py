@@ -1,5 +1,5 @@
 from . import algebra, conversions, geometry, physics
-from .algebra import quadratic_formula, slope
+from .algebra import point_slope_form, quadratic_formula, slope
 from .conversions import speed
 from .geometry import pythagorean_theorem
 from .physics import newtons_second_law
@@ -14,4 +14,5 @@ __all__ = [
     "speed",
     "conversions",
     "slope",
+    "point_slope_form",
 ]
