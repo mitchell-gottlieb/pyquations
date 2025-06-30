@@ -24,10 +24,10 @@ def slope(x1: float, y1: float, x2: float, y2: float) -> float:
             line with an undefined slope.
 
     Examples:
-        >>> slope_formula(1, 2, 3, 6)
+        >>> slope(1, 2, 3, 6)
         2.0
 
-        >>> slope_formula(0, 0, 5, 5)
+        >>> slope(0, 0, 5, 5)
         1.0
 
     Resources:
