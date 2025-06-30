@@ -16,7 +16,10 @@ templates_path: list[str] = ["_templates"]
 
 html_theme: str = "pydata_sphinx_theme"
 html_show_sourcelink: bool = False
-html_theme_options: dict = {
+html_theme_options: dict[
+    str,
+    dict[str, str] | list[dict[str, str]] | list[str],
+] = {
     "logo": {
         "text": "pyquations",
     },

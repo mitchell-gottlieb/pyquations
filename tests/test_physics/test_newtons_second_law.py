@@ -20,7 +20,12 @@ from pyquations.physics.newtons_second_law import newtons_second_law
         (100, 1.5, None, 150),
     ],
 )
-def test_newtons_second_law(mass, acceleration, force, expected):
+def test_newtons_second_law(
+    mass: float | None,
+    acceleration: float | None,
+    force: float | None,
+    expected: float,
+) -> None:
     assert (
         newtons_second_law(mass=mass, acceleration=acceleration, force=force)
         == expected
@@ -40,6 +45,8 @@ def test_newtons_second_law(mass, acceleration, force, expected):
         (None, None, None),
     ],
 )
-def test_newtons_second_law_invalid(mass, acceleration, force):
+def test_newtons_second_law_invalid(
+    mass: float | None, acceleration: float | None, force: float | None
+) -> None:
     with pytest.raises(ValueError):
         newtons_second_law(mass=mass, acceleration=acceleration, force=force)

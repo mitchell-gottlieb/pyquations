@@ -18,7 +18,12 @@ from pyquations.conversions.speed import speed
         (1, "ips", "fps", 1 / 12),
     ],
 )
-def test_speed(speed_value, from_unit, to_unit, expected):
+def test_speed(
+    speed_value: float,
+    from_unit: str,
+    to_unit: str,
+    expected: float,
+) -> None:
     assert speed(
         speed_value,
         from_unit,
@@ -37,6 +42,10 @@ def test_speed(speed_value, from_unit, to_unit, expected):
         (50, "invalid_unit", "kph"),
     ],
 )
-def test_speed_invalid(speed_value, from_unit, to_unit):
+def test_speed_invalid(
+    speed_value: float,
+    from_unit: str,
+    to_unit: str,
+) -> None:
     with pytest.raises(ValueError):
         speed(speed_value, from_unit, to_unit)

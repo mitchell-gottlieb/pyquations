@@ -10,4 +10,4 @@ Features
 
 Bug Fixes
 =========
-- N/A
+- Address code smells for strict typing.

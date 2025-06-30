@@ -1,8 +1,8 @@
 def newtons_second_law(
     *,
-    mass: float,
-    acceleration: float,
-    force: float,
+    mass: float | None,
+    acceleration: float | None,
+    force: float | None,
 ) -> float:
     """Solve for one variable in Newton's second law of motion given the other
     two.
@@ -72,7 +72,7 @@ def newtons_second_law(
             https://www.physicsclassroom.com/class/newtlaws/lesson-3/newton-s-second-law
     """
     # Validate that exactly two parameters are provided
-    provided: list = [mass, acceleration, force]
+    provided: list[float | None] = [mass, acceleration, force]
     if provided.count(None) != 1:
         raise ValueError("Exactly two parameters must be provided.")
 
@@ -86,7 +86,10 @@ def newtons_second_law(
 
     # Perform the calculations
     if mass is None:
+        assert force is not None and acceleration is not None
         return force / acceleration
     if acceleration is None:
+        assert force is not None and mass is not None
         return force / mass
+    assert mass is not None and acceleration is not None
     return mass * acceleration

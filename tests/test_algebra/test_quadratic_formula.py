@@ -13,10 +13,12 @@ from pyquations.algebra.quadratic_formula import quadratic_formula
         (1e6, -3e6, 2e6, ((2 + 0j), (1 + 0j))),
     ],
 )
-def test_quadratic_formula(a, b, c, expected):
+def test_quadratic_formula(
+    a: float, b: float, c: float, expected: tuple[complex, complex] | None
+) -> None:
     if expected is None:
         with pytest.raises(ValueError):
             quadratic_formula(a, b, c)
     else:
-        result = quadratic_formula(a, b, c)
+        result: tuple[complex, complex] = quadratic_formula(a, b, c)
         assert result == pytest.approx(expected)
