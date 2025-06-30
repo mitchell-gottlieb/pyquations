@@ -6,6 +6,7 @@ Features
 ========
 - Add a ``slope`` function to the ``algebra`` package to calculate the slope of a line between two points. (`#20 <https://github.com/mitchell-gottlieb/pyquations/issues/20>`_)
 - Add a ``point_slope_form`` function to the ``algebra`` package to create a function representing a line in point-slope form. (`#21 <https://github.com/mitchell-gottlieb/pyquations/issues/21>`_)
+- Add a ``distance`` function to the ``geometry`` package to calculate the distance between two points. (`#22 <https://github.com/mitchell-gottlieb/pyquations/issues/22>`_)
 
 Bug Fixes
 =========
