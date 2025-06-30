@@ -1,0 +1,11 @@
+=========================
+v1.0.0 (Month DD, 2025)
+=========================
+
+Features
+========
+- Add a ``slope`` function to the ``algebra`` package to calculate the slope of a line between two points. (`#20 <https://github.com/mitchell-gottlieb/pyquations/issues/20>`_)
+
+Bug Fixes
+=========
+- Address code smells for strict type checking. (`#75 <https://github.com/mitchell-gottlieb/pyquations/issues/75>`_)
